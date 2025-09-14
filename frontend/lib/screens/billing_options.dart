@@ -4,6 +4,7 @@ import 'trip_billing.dart';
 import 'lodging_billing.dart';
 import 'dining_billing.dart';
 import 'group_screen.dart';
+import 'ocr_screen.dart'; // <-- Import your BillOCRScreen
 
 class BillingOptionsScreen extends StatelessWidget {
   final List<GroupMember> groupMembers;
@@ -51,8 +52,8 @@ class BillingOptionsScreen extends StatelessWidget {
                           context,
                           MaterialPageRoute(
                             builder: (_) => GroupScreen(
-                              userEmail: userEmail, // Pass the required parameter
-                              userName: userName,   // Pass the required parameter
+                              userEmail: userEmail,
+                              userName: userName,
                             ),
                           ),
                         );
@@ -144,6 +145,20 @@ class BillingOptionsScreen extends StatelessWidget {
                               groupMembers: groupMembers,
                               groupCode: groupCode,
                             ),
+                          ),
+                        ),
+                      ),
+                      // **New OCR Billing Card**
+                      _buildBillingCard(
+                        context,
+                        title: 'OCR Bill',
+                        description: 'Upload a bill image and parse it automatically',
+                        icon: Icons.receipt_long,
+                        color: Colors.blue.shade300,
+                        onTap: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => BillOCRScreen(),
                           ),
                         ),
                       ),

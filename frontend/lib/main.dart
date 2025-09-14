@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'screens/tutorial_screen.dart';
+import 'screens/ocr_screen.dart'; // ✅ Import the OCR widget
 
 void main() {
   runApp(BillSplittingApp());
@@ -17,6 +18,9 @@ class BillSplittingApp extends StatelessWidget {
       ),
       home: TutorialScreen(),  // ✅ Always opens tutorial screen
       debugShowCheckedModeBanner: false,
+      routes: {
+        '/ocr': (context) => BillOCRScreen(), // ✅ OCR route added
+      },
     );
   }
 }
